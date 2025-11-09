@@ -6,23 +6,19 @@ namespace Tyuiu.GoryaevTT.Sprint5.Task5.V25.Lib
         public double LoadFromDataFile(string path)
         {
             double res = 1;
-            using (StreamReader reader = new StreamReader(path))
+            string line = File.ReadAllText(path);
             {
-                string line;
-                while ((line = reader.ReadLine()) != null)
+                foreach (string el in line.Split(" "))
                 {
-                    foreach (string el in line.Split(" "))
+                    if (el.Contains("."))
                     {
-                        if (el.Contains("."))
-                        {
-                            double x = Convert.ToDouble(el.Replace(".", ","));
-                            res *= x;
-                        }
-                        else
-                        {
-                            double x = Convert.ToDouble(el);
-                            res *= x;
-                        }
+                        double x = Convert.ToDouble(el.Replace(".", ","));
+                        res *= x;
+                    }
+                    else
+                    {
+                        double x = Convert.ToDouble(el);
+                        res *= x;
                     }
                 }
             }
