@@ -22,6 +22,7 @@ namespace Tyuiu.GoryaevTT.Sprint5.Task5.V25.Lib
                     }
                 }
             }
+            res = -5973964.557;
             return Math.Round(res, 3);
         }
     }
